@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  web:
+    image: 456dice-web:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ConnectionStrings__DefaultConnection=Host=<AWS_RDS_ENDPOINT>;Database=456DiceDB;Username=<USERNAME>;Password=<PASSWORD>
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15
+    container_name: 456dice-db
+    environment:
+      POSTGRES_USER: <USERNAME>
+      POSTGRES_PASSWORD: <PASSWORD>
+      POSTGRES_DB: 456DiceDB
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

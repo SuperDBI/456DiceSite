@@ -1,0 +1,56 @@
+[
+  {
+    "family": "x456dicesite-frontend",
+    "containerDefinitions": [
+      {
+        "name": "frontend",
+        "image": "236684161451.dkr.ecr.us-east-1.amazonaws.com/456dice-frontend:latest",
+        "memory": 512,
+        "cpu": 256,
+        "essential": true,
+        "portMappings": [
+          {
+            "containerPort": 80,
+            "hostPort": 80
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "family": "x456dicesite-backend",
+    "containerDefinitions": [
+      {
+        "name": "backend",
+        "image": "236684161451.dkr.ecr.us-east-1.amazonaws.com/456dice-backend:latest",
+        "memory": 512,
+        "cpu": 256,
+        "essential": true,
+        "portMappings": [
+          {
+            "containerPort": 5000,
+            "hostPort": 5000
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "family": "x456dicesite-admin-panel",
+    "containerDefinitions": [
+      {
+        "name": "admin-panel",
+        "image": "236684161451.dkr.ecr.us-east-1.amazonaws.com/456dice-admin-panel:latest",
+        "memory": 512,
+        "cpu": 256,
+        "essential": true,
+        "portMappings": [
+          {
+            "containerPort": 8080,
+            "hostPort": 8080
+          }
+        ]
+      }
+    ]
+  }
+]

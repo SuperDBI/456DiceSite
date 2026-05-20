@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Home - 456Dice</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: white;
+            color: black;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background: black;
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .section {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            margin-top: 0;
+        }
+
+        .profile-picture {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .profile-picture img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 2px solid black;
+        }
+
+        .friends-list, .game-history, .account-info, .rewards-history, .purchase-record, .shop-cart, .settings {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .settings button {
+            padding: 10px;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .settings button:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Your Dashboard</h1>
+    </header>
+
+    <div class="container">
+        <div class="section profile-picture">
+            <h2>Profile</h2>
+            <img src="profile-placeholder.jpg" alt="Profile Picture">
+            <p>Username: JohnDoe</p>
+        </div>
+
+        <div class="section friends-list">
+            <h2>Friends List</h2>
+            <ul>
+                <li>Friend 1</li>
+                <li>Friend 2</li>
+                <li>Friend 3</li>
+            </ul>
+        </div>
+
+        <div class="section game-history">
+            <h2>Game History</h2>
+            <p>Last Played: 05/18/2026</p>
+            <p>Total Games Played: 120</p>
+        </div>
+
+        <div class="section account-info">
+            <h2>Account Information</h2>
+            <p>Player ID: 123456</p>
+            <p>Payment Info: **** **** **** 1234</p>
+            <p>Device ID: Device123</p>
+        </div>
+
+        <div class="section rewards-history">
+            <h2>Game Rewards History</h2>
+            <p>Reward 1: 100 Coins</p>
+            <p>Reward 2: 50 Gems</p>
+        </div>
+
+        <div class="section purchase-record">
+            <h2>Paid Features Purchase Record</h2>
+            <p>Feature 1: Purchased on 05/01/2026</p>
+            <p>Feature 2: Purchased on 04/15/2026</p>
+        </div>
+
+        <div class="section shop-cart">
+            <h2>456 Shop & Shopping Cart</h2>
+            <p>Item 1: Dice Skin</p>
+            <p>Item 2: Extra Lives</p>
+        </div>
+
+        <div class="section settings">
+            <h2>Settings</h2>
+            <button>Adjust Security & Privacy</button>
+            <button>Update Personal Information</button>
+            <button>Update Payment Information</button>
+        </div>
+    </div>
+</body>
+</html>

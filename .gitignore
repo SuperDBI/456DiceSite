@@ -1,0 +1,2 @@
+# Add environment variables to .gitignore
+.env
