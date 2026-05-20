@@ -1,0 +1,426 @@
+gh secret set AWS_SECRET_ACCESS_KEY<!DOCTYPE html>gh secret set AWS_SECRET_ACCESS_KEY
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>456Dice.com</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <style>
+        @font-face {
+            font-family: "DrippingMarker";
+            src: url("ADrippingMarker-Ddw1.ttf") format("truetype");
+            font-display: swap;
+        }
+
+        html {
+            min-height: 100%;
+            background-image: url('456dicebgrd.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-color: #000; /* Ensure fallback color */
+            z-index: -2; /* Ensure it is behind all content */
+        }
+
+        body {
+            min-height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: transparent; /* Ensure body does not block the background */
+            color: white;
+            z-index: -1; /* Place it behind all content */
+        }
+
+        header {
+            display: flex; /* Use flexbox for alignment */
+            align-items: center; /* Vertically align items */
+            justify-content: center; /* Space out the logo and text */
+            padding: 20px;
+            background: transparent; /* Ensure header background does not block visibility */
+            position: relative; /* Maintain proper stacking context */
+            z-index: 1; /* Ensure it is above the background */
+        }
+
+        header h1 {
+            font-size: clamp(4.5rem, 11vw, 9rem);
+            margin: 0;
+            font-family: "DrippingMarker", Arial, sans-serif;
+            line-height: 0.95;
+        }
+
+        .favicon-logo {
+            position: sticky;
+            top: 0;
+            margin-right: auto;
+            margin-left: auto;
+            width: 150px; /* Adjust size to fit in the row */
+            height: 150px;
+            background: transparent; /* Ensure full transparency */
+            border: none;
+            box-shadow: none;
+            z-index: 1000; /* Ensure it stays above other elements */
+            opacity: 0.8; /* Add slight transparency to the image */
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        nav a, nav button {
+            text-decoration: none;
+            color: black;
+            background-color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        nav a:hover, nav button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .dropdown {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            position: absolute;
+            top: 60px;
+            left: 10px;
+            z-index: 1000;
+        }
+
+        .dropdown a {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .menu-toggle {
+            display: none;
+            background-color: white;
+            color: black;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .favicon-logo {
+                width: 200px;
+                height: 200px;
+            }
+
+            nav a, nav button {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+
+            .screenshot img {
+                max-width: 200px; /* Adjust for smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .favicon-logo {
+                width: 150px;
+                height: 150px;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            nav a, nav button {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+
+            .screenshot img {
+                max-width: 150px; /* Adjust for very small screens */
+            }
+        }
+
+        .screenshot img {
+            width: 100%; /* Make images responsive */
+            max-width: 140px; /* Reduced size by 50% */
+            height: auto;
+            border: 5px solid white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .screenshot img:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            position: fixed; /* Make the footer sticky */
+            bottom: 0; /* Stick to the bottom of the screen */
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            z-index: 1000; /* Ensure it stays above other elements */
+        }
+
+        .screenshot {
+            display: flex;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 0; /* Removed spacing between images */
+            justify-content: center; /* Center the images */
+            align-items: center; /* Align images in a row */
+            padding: 20px;
+        }
+
+        .gallery-overlay {
+            display: none; /* Ensure the overlay is hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .gallery-overlay img {
+            max-width: 90%;
+            max-height: 90%;
+            border: 5px solid white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (min-width: 1024px) {
+            .screenshot {
+                gap: 5px; /* Further reduced spacing for web view */
+            }
+        }
+
+        .auth-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Center the container */
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .auth-container form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .auth-container input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .auth-container button {
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .auth-container button:hover {
+            background-color: #0056b3;
+        }
+
+        .social-login {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .social-login img {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img class="favicon-logo" src="456ranklogo.png" alt="456Dice Logo">
+        <h1 style="text-align: center; flex-grow: 1;">456Dice.com</h1>
+    </header>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Download</a>
+        <a href="#">Social Media</a>
+        <a href="#">About</a>
+        <a href="#">Support</a>
+        <button id="login-btn" style="padding: 10px 20px; background-color: white; color: black; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);">Login</button>
+        <button id="signup-btn" style="padding: 10px 20px; background-color: white; color: black; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);">Sign Up</button>
+    </nav>
+
+    <button class="menu-toggle" onclick="toggleMenu()">Menu</button>
+    <div class="dropdown" id="dropdownMenu">
+        <a href="#">Home</a>
+        <a href="#">Download</a>
+        <a href="#">Social Media</a>
+        <a href="#">About</a>
+        <a href="#">Support</a>
+    </div>
+
+    <div class="home-buttons" style="display: none;"> <!-- Removed from view -->
+    </div>
+
+        <div class="auth-overlay">
+        <div class="auth-container">
+            <button class="close-btn" style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 20px; cursor: pointer; color: black; font-weight: bold;">[X]</button>
+            <h2>Login</h2>
+            <form>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+            <div class="social-login" style="display: flex; justify-content: center; gap: 10px; margin-top: 20px;">
+                <img src="images/openid-icon.png" alt="OpenID" style="width: 40px; height: 40px; cursor: pointer;">
+                <img src="images/google-icon.png" alt="Google" style="width: 40px; height: 40px; cursor: pointer;">
+                <img src="images/facebook-icon.png" alt="Facebook" style="width: 40px; height: 40px; cursor: pointer;">
+                <img src="images/apple-icon.png" alt="Apple" style="width: 40px; height: 40px; cursor: pointer;">
+            </div>
+            <p>Don't have an account? <a href="#">Sign up</a></p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div style="text-align: center;">
+            <p style="text-align: center; border: 2px solid white; background-color: rgba(0, 0, 255, 0.5); padding: 10px; display: inline-block;">Experience the thrill of 4-5-6 Jackpot with our mobile app. Check out the screenshots below!</p>
+        </div>
+
+        <div class="screenshot">
+            <img src="images/image1.png" alt="App Screenshot 1" onclick="openGallery(this.src)">
+            <img src="images/image2.png" alt="App Screenshot 2" onclick="openGallery(this.src)">
+            <img src="images/image3.png" alt="App Screenshot 3" onclick="openGallery(this.src)">
+        </div>
+
+        <div class="gallery-overlay" id="galleryOverlay">
+            <button class="close-btn" onclick="closeGallery()">&times;</button>
+            <img id="galleryImage" src="" alt="Gallery Image">
+        </div>
+
+        <script>
+            function openGallery(src) {
+                const overlay = document.getElementById('galleryOverlay');
+                const galleryImage = document.getElementById('galleryImage');
+                galleryImage.src = src;
+                overlay.style.display = 'flex';
+            }
+
+            function closeGallery() {
+                const overlay = document.getElementById('galleryOverlay');
+                overlay.style.display = 'none';
+            }
+        </script>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 456Dice.com. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const authOverlay = document.querySelector('.auth-overlay');
+            const closeButton = document.querySelector('.auth-container .close-btn');
+
+            closeButton.addEventListener('click', () => {
+                authOverlay.style.display = 'none';
+            });
+
+            const loginButton = document.getElementById('login-btn');
+            const signupButton = document.getElementById('signup-btn');
+
+            loginButton.addEventListener('click', () => {
+                authOverlay.style.display = 'flex';
+            });
+
+            signupButton.addEventListener('click', () => {
+                authOverlay.style.display = 'flex';
+            });
+
+            const loginForm = document.querySelector('.auth-container form');
+
+            loginForm.addEventListener('submit', async (event) => {
+                event.preventDefault();
+
+                const email = loginForm.querySelector('input[type="email"]').value;
+                const password = loginForm.querySelector('input[type="password"]').value;
+
+                try {
+                    const response = await fetch('https://your-backend-api/login', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ email, password })
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        alert('Login successful!');
+                        // Redirect or handle successful login
+                    } else {
+                        alert('Login failed. Please check your credentials.');
+                    }
+                } catch (error) {
+                    console.error('Error during login:', error);
+                    alert('An error occurred. Please try again later.');
+                }
+            });
+        });
+
+        function toggleMenu() {
+            const dropdown = document.getElementById('dropdownMenu');
+            if (dropdown.style.display === 'flex') {
+                dropdown.style.display = 'none';
+            } else {
+                dropdown.style.display = 'flex';
+            }
+        }
+    </script>
+</body>
+</html>
