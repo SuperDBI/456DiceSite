@@ -7,10 +7,10 @@ EXPOSE 3000
 # Use the SDK image for building the application
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["backend/*.csproj", "./"]
+COPY ["backend.csproj", "./"]
 RUN dotnet restore "./backend.csproj"
 COPY . .
-WORKDIR "/src/backend"
+WORKDIR "/src"
 RUN dotnet build "backend.csproj" -c Release -o /app/build
 
 # Publish the application
