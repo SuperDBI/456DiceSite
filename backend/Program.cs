@@ -18,9 +18,9 @@ if (app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
 }
 
-app.UseHttpsRedirection();
 app.UseAuthorization();
 
+app.MapGet("/health", () => Results.Ok("healthy"));
 app.MapControllers();
 
 app.Run();
