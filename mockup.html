@@ -177,10 +177,18 @@
             position: fixed; /* Make the footer sticky */
             bottom: 0; /* Stick to the bottom of the screen */
             width: 100%;
-            text-align: center;
-            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            padding: 10px 20px;
             background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
             z-index: 1000; /* Ensure it stays above other elements */
+            white-space: nowrap;
+        }
+
+        footer p {
+            margin: 0;
         }
 
         .screenshot {
@@ -211,6 +219,150 @@
             border: 5px solid white;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .content-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.92);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            z-index: 10005;
+        }
+
+        .content-box {
+            width: min(1000px, 100%);
+            max-height: 90vh;
+            overflow-y: auto;
+            background: black;
+            border: 2px solid white;
+            border-radius: 16px;
+            padding: 30px;
+            color: white;
+            position: relative;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
+        }
+
+        .content-box h2 {
+            margin-top: 0;
+            font-size: clamp(2rem, 3vw, 2.8rem);
+        }
+
+        .content-box p,
+        .content-box ul,
+        .content-box li {
+            color: white;
+            line-height: 1.6;
+        }
+
+        .content-box a {
+            color: #80d7ff;
+            text-decoration: underline;
+        }
+
+        .content-box .tab-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .content-box .tab-buttons button {
+            background: white;
+            color: black;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 18px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .content-box .tab-buttons button.active {
+            background: #80d7ff;
+            color: black;
+        }
+
+        .page-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.92);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            z-index: 10005;
+        }
+
+        .page-box {
+            width: min(1000px, 100%);
+            max-height: 90vh;
+            overflow-y: auto;
+            background: black;
+            border: 2px solid white;
+            border-radius: 16px;
+            padding: 30px;
+            color: white;
+            position: relative;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
+        }
+
+        .page-box h2 {
+            margin-top: 0;
+            font-size: clamp(2rem, 3vw, 2.8rem);
+        }
+
+        .page-box p,
+        .page-box ul,
+        .page-box li {
+            color: white;
+            line-height: 1.6;
+        }
+
+        .page-box a {
+            color: #80d7ff;
+            text-decoration: underline;
+        }
+
+        .page-box .tab-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .page-box .tab-buttons button {
+            background: white;
+            color: black;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 18px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .page-box .tab-buttons button.active {
+            background: #80d7ff;
+            color: black;
+        }
+
+        .footer-links {
+            display: inline-flex;
+            gap: 20px;
+            flex-wrap: nowrap;
+            margin: 0 0 0 20px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
         }
 
         @media (min-width: 1024px) {
@@ -285,22 +437,22 @@
     </header>
 
     <nav>
-        <a href="#">Home</a>
-        <a href="#">Download</a>
-        <a href="#">Social Media</a>
-        <a href="#">About</a>
-        <a href="#">Support</a>
+        <a href="https://www.456dice.com" data-page="home">Home</a>
+        <a href="/download" data-page="download">Download</a>
+        <a href="/social" data-page="social">Social Media</a>
+        <a href="/about" data-page="about">About</a>
+        <a href="/support" data-page="support">Support</a>
         <button id="login-btn" style="padding: 10px 20px; background-color: white; color: black; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);">Login</button>
         <button id="signup-btn" style="padding: 10px 20px; background-color: white; color: black; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);">Sign Up</button>
     </nav>
 
     <button class="menu-toggle" onclick="toggleMenu()">Menu</button>
     <div class="dropdown" id="dropdownMenu">
-        <a href="#">Home</a>
-        <a href="#">Download</a>
-        <a href="#">Social Media</a>
-        <a href="#">About</a>
-        <a href="#">Support</a>
+        <a href="/" data-page="home">Home</a>
+        <a href="/download" data-page="download">Download</a>
+        <a href="/social" data-page="social">Social Media</a>
+        <a href="/about" data-page="about">About</a>
+        <a href="/support" data-page="support">Support</a>
     </div>
 
     <div class="home-buttons" style="display: none;"> <!-- Removed from view -->
@@ -341,6 +493,31 @@
             <img id="galleryImage" src="" alt="Gallery Image">
         </div>
 
+        <div class="page-overlay" id="pageOverlay">
+            <div class="page-box">
+                <button class="close-btn" onclick="closePageOverlay()">&times;</button>
+                <div class="tab-buttons">
+                    <button type="button" id="pageTabDownload" onclick="showPageContent('download')">Download</button>
+                    <button type="button" id="pageTabSocial" onclick="showPageContent('social')">Social Media</button>
+                    <button type="button" id="pageTabAbout" onclick="showPageContent('about')">About</button>
+                    <button type="button" id="pageTabSupport" onclick="showPageContent('support')">Support</button>
+                </div>
+                <div id="pageContent"></div>
+            </div>
+        </div>
+
+        <div class="content-overlay" id="contentOverlay">
+            <div class="content-box">
+                <button class="close-btn" onclick="closeContentOverlay()">&times;</button>
+                <div class="tab-buttons">
+                    <button type="button" id="overlayTabDelete" onclick="showOverlayContent('delete')">Delete Data</button>
+                    <button type="button" id="overlayTabPrivacy" onclick="showOverlayContent('privacy')">Privacy</button>
+                    <button type="button" id="overlayTabTerms" onclick="showOverlayContent('terms')">Terms</button>
+                </div>
+                <div id="overlayContent"></div>
+            </div>
+        </div>
+
         <script>
             function openGallery(src) {
                 const overlay = document.getElementById('galleryOverlay');
@@ -353,12 +530,98 @@
                 const overlay = document.getElementById('galleryOverlay');
                 overlay.style.display = 'none';
             }
+
+            function openPageOverlay(page) {
+                if (!page) return;
+                const overlay = document.getElementById('pageOverlay');
+                overlay.style.display = 'flex';
+                showPageContent(page);
+            }
+
+            function closePageOverlay() {
+                const overlay = document.getElementById('pageOverlay');
+                overlay.style.display = 'none';
+                history.replaceState({}, '', '/');
+            }
+
+            function showPageContent(page) {
+                const content = document.getElementById('pageContent');
+                const pages = {
+                    download: `
+                        <h2>Download</h2>
+                        <p>Get the latest 456Dice app here once it is available.</p>
+                        <p>More download details and links will be added later.</p>
+                    `,
+                    social: `
+                        <h2>Social Media</h2>
+                        <p>Follow 456Dice on social media for news, updates, and promotions.</p>
+                        <p>More network links and social channel details will be added later.</p>
+                    `,
+                    about: `
+                        <h2>About</h2>
+                        <p>Learn about the 456Dice project, our mission, and our vision.</p>
+                        <p>More company and product details will be added later.</p>
+                    `,
+                    support: `
+                        <h2>Support</h2>
+                        <p>Find help with the app, account, or game issues.</p>
+                        <p>More support options and contact details will be added later.</p>
+                    `
+                };
+
+                const pageKey = page.toLowerCase();
+                if (!pages[pageKey]) return;
+
+                content.innerHTML = pages[pageKey];
+                document.querySelectorAll('.page-box .tab-buttons button').forEach(btn => {
+                    btn.classList.toggle('active', btn.id === `pageTab${pageKey.charAt(0).toUpperCase() + pageKey.slice(1)}`);
+                });
+                history.replaceState({ page: pageKey }, '', `/${pageKey}`);
+            }
+
+            function showOverlayContent(page) {
+                const content = document.getElementById('overlayContent');
+                const pages = {
+                    delete: `
+                        <h2>User Data Deletion</h2>
+                        <p>This overlay provides users with information on how to perform user data deletion.</p>
+                        <p>More content will be added to this page later.</p>
+                        <p><strong>Data deletion instructions URL:</strong> <a href="http://www.456dice.com/delete" target="_blank" rel="noopener">http://www.456dice.com/delete</a></p>
+                    `,
+                    privacy: `
+                        <h2>Privacy Policy</h2>
+                        <p>This overlay provides the privacy policy summary for 456Dice.</p>
+                        <p>More content will be added to this page later.</p>
+                        <p><strong>Privacy policy URL:</strong> <a href="http://www.456dice.com/privacy" target="_blank" rel="noopener">http://www.456dice.com/privacy</a></p>
+                    `,
+                    terms: `
+                        <h2>Terms of Service</h2>
+                        <p>This overlay provides the terms of service summary for 456Dice.</p>
+                        <p>More content will be added to this page later.</p>
+                        <p><strong>Terms of Service URL:</strong> <a href="http://www.456dice.com/terms" target="_blank" rel="noopener">http://www.456dice.com/terms</a></p>
+                    `
+                };
+
+                const pageKey = page.toLowerCase();
+                if (!pages[pageKey]) return;
+
+                content.innerHTML = pages[pageKey];
+                document.querySelectorAll('.content-box .tab-buttons button').forEach(btn => {
+                    btn.classList.toggle('active', btn.id === `overlayTab${pageKey.charAt(0).toUpperCase() + pageKey.slice(1)}`);
+                });
+                history.replaceState({ page: pageKey }, '', `/${pageKey}`);
+            }
         </script>
 
     </div>
 
     <footer>
         <p>&copy; 2026 456Dice.com. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="/privacy" data-page="privacy">Privacy</a>
+            <a href="/delete" data-page="delete">Delete Data</a>
+            <a href="/terms" data-page="terms">Terms</a>
+        </div>
     </footer>
 
     <script>
@@ -409,6 +672,40 @@
                     console.error('Error during login:', error);
                     alert('An error occurred. Please try again later.');
                 }
+            });
+
+            const footerLinks = document.querySelectorAll('.footer-links a');
+            footerLinks.forEach(link => {
+                link.addEventListener('click', event => {
+                    event.preventDefault();
+                    const page = link.dataset.page;
+                    if (page) {
+                        openContentOverlay(page);
+                    }
+                });
+            });
+
+            const currentPath = window.location.pathname.toLowerCase();
+            if (['/privacy', '/delete', '/terms'].includes(currentPath)) {
+                const pageName = currentPath.slice(1);
+                openContentOverlay(pageName);
+            }
+
+            if (['/download', '/social', '/about', '/support'].includes(currentPath)) {
+                const pageName = currentPath.slice(1);
+                openPageOverlay(pageName);
+            }
+        });
+
+        const navLinks = document.querySelectorAll('nav a[data-page], .dropdown a[data-page]');
+        navLinks.forEach(link => {
+            link.addEventListener('click', event => {
+                const page = link.dataset.page;
+                if (!page || page === 'home') return;
+                event.preventDefault();
+                openPageOverlay(page);
+                const dropdown = document.getElementById('dropdownMenu');
+                if (dropdown) dropdown.style.display = 'none';
             });
         });
 
