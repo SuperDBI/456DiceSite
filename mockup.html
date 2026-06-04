@@ -583,22 +583,133 @@
                 const content = document.getElementById('overlayContent');
                 const pages = {
                     delete: `
-                        <h2>User Data Deletion</h2>
-                        <p>This overlay provides users with information on how to perform user data deletion.</p>
-                        <p>More content will be added to this page later.</p>
-                        <p><strong>Data deletion instructions URL:</strong> <a href="http://www.456dice.com/delete" target="_blank" rel="noopener">http://www.456dice.com/delete</a></p>
+                        <h2>Data Deletion Policy</h2>
+                        <p><strong>Effective Date:</strong> June 1, 2026<br><strong>Last Updated:</strong> June 4, 2026</p>
+                        <p>At 4-5-6 Jackpot (developed by moNPO Mobile Game Solutions), we respect your right to privacy and control over your personal data. In compliance with the Google Play Store, Apple App Store, Facebook Games platform rules, and global data privacy regulations (such as GDPR and CCPA/CPRA), we provide a clear and transparent mechanism for users to request the deletion of their information.</p>
+                        <h3>1. What Data Can Be Deleted?</h3>
+                        <p>When you submit a data deletion request, all personally identifiable information (PII) associated with your account will be permanently removed from our active databases. This includes:</p>
+                        <ul>
+                            <li>Your first and last name.</li>
+                            <li>Your registered email address.</li>
+                            <li>Your mobile device number and verified age/date of birth.</li>
+                            <li>Your account credentials, profile settings, and regional zip codes.</li>
+                        </ul>
+                        <h3>2. Retention for Anti-Fraud and Security</h3>
+                        <p>Because 4-5-6 Jackpot is a play-money rewards-based mobile game, we enforce strict anti-cheating mechanisms to ensure a fair environment for all players.</p>
+                        <p><strong>Anonymized Security Logs:</strong> In order to circumvent unauthorized reuse of the App, cheating, or multi-account exploitation, certain non-identifiable technical data—such as hardware device IDs and historical logs of unauthorized activity—may be securely retained in an encrypted, completely anonymized format. This data will only be utilized for fraud prevention and cannot be linked back to a natural person.</p>
+                        <h3>3. Critical Operational Consequences of Deletion</h3>
+                        <p>Please be aware that your data policy is a strict technical requirement for the operation of the game.</p>
+                        <p><strong>Account Termination:</strong> By opting to delete your data, you will no longer be able to use the 4-5-6 Jackpot App or log into 456dice.com.</p>
+                        <p><strong>Forfeiture of Rewards:</strong> All native gaming stats, historical play data, in-app achievements, and accumulated play-money rewards will be permanently wiped out and cannot be recovered, restored, or transferred.</p>
+                        <h3>4. How to Submit a Data Deletion Request</h3>
+                        <p>You can initiate the data erasure process at any time through either of the following two methods:</p>
+                        <h4>Method A: Web Portal (Recommended)</h4>
+                        <ol>
+                            <li>Go to our website portal at <a href="https://456dice.com" target="_blank" rel="noopener">456dice.com</a>.</li>
+                            <li>Log into your account using your standard credentials.</li>
+                            <li>Navigate to Account Settings.</li>
+                            <li>Click the link labeled "Delete My Account &amp; Data".</li>
+                            <li>Confirm your choice by reading and accepting the operational forfeiture warning.</li>
+                        </ol>
+                        <h4>Method B: Email Request</h4>
+                        <p>You can email our support team directly to request manual deletion.</p>
+                        <p>Email: <a href="mailto:support@456dice.com">support@456dice.com</a><br>Subject Line: Data Deletion Request - 4-5-6 Jackpot<br>Required Info: You must send the email from the exact address used to register your game account.</p>
+                        <h3>5. Processing Timeline</h3>
+                        <p><strong>Immediate Deactivation:</strong> Once you confirm your deletion request via our web portal, your account access will be deactivated instantly.</p>
+                        <p><strong>Complete Purge:</strong> Our backend systems will permanently purge or anonymize your data from active servers and backups within 30 business days, fully meeting the strict timeline regulations enforced by Apple, Google, and Facebook.</p>
+                        <h3>6. Contact Information</h3>
+                        <p>For any inquiries regarding this Data Deletion Policy or your rights under regional privacy laws, please reach out to us at:<br>Website: <a href="https://456dice.com" target="_blank" rel="noopener">456dice.com</a><br>Developer Identity: moNPO Mobile Game Solutions</p>
                     `,
-                    privacy: `
-                        <h2>Privacy Policy</h2>
-                        <p>This overlay provides the privacy policy summary for 456Dice.</p>
-                        <p>More content will be added to this page later.</p>
-                        <p><strong>Privacy policy URL:</strong> <a href="http://www.456dice.com/privacy" target="_blank" rel="noopener">http://www.456dice.com/privacy</a></p>
-                    `,
+                        privacy: `
+                            <h2>Privacy Policy</h2>
+                            <p><strong>Effective Date:</strong> June 1, 2026<br><strong>Last Updated:</strong> June 4, 2026</p>
+                            <p>Welcome to 4-5-6 Jackpot (the "App"), a mobile and web-based play-money rewards game developed by moNPO Mobile Game Solutions ("we," "us," or "our"). The frontend of our App and our official website are accessible via www.456dice.com.</p>
+                            <p>We are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application on the Google Play Store, Apple App Store, Facebook Games app, or visit our website. Please read this Privacy Policy carefully. By accessing or using the App, you agree to the collection and use of information in accordance with this policy. If you do not agree with the terms of this Privacy Policy, please do not access or use the App.</p>
+                            <h3>1. Information We Collect</h3>
+                            <p>To provide a secure and fair gaming experience, prevent unauthorized access, and manage your rewards, we collect specific types of information.</p>
+                            <h4>A. Personally Identifiable Information (PII)</h4>
+                            <p>You may provide this information during registration (via direct email or when logging in through Apple, Google, or Facebook OpenID):</p>
+                            <ul>
+                                <li><strong>First and Last Name:</strong> To identify your account and personalize your experience.</li>
+                                <li><strong>Email Address:</strong> For account creation, account recovery, security notices, and password management.</li>
+                                <li><strong>Age / Date of Birth:</strong> Collected strictly for age verification purposes to comply with app store platform rules.</li>
+                                <li><strong>Mobile Device Number:</strong> Used for account verification and security purposes.</li>
+                                <li><strong>Zip Code:</strong> Used to verify regional availability for rewards structures.</li>
+                            </ul>
+                            <h4>B. Device and Native Gaming Data</h4>
+                            <p>We automatically collect technical data necessary for game performance and anti-cheat tracking:</p>
+                            <ul>
+                                <li><strong>Mobile Device IDs:</strong> Unique hardware identifiers used to link your account to your physical device and prevent multi-account abuse.</li>
+                                <li><strong>Native Gaming Stats:</strong> Daily app utilization tracking, in-game achievements, progress, and reward records.</li>
+                            </ul>
+                            <h3>2. How We Use Your Information</h3>
+                            <p>We use the data we collect solely for the following operational and security purposes:</p>
+                            <ul>
+                                <li><strong>Game Performance & Maintenance:</strong> Tracking native game statistics and reward balances.</li>
+                                <li><strong>Account Management:</strong> Allowing you to log in, reset passwords, and view achievements via www.456dice.com.</li>
+                                <li><strong>Fraud Prevention & Anti-Cheating:</strong> We enforce strict anti-cheating mechanisms. Device IDs and game data are monitored to circumvent unauthorized use, manipulation, or exploitation of the 4-5-6 Jackpot App.</li>
+                                <li><strong>Compliance:</strong> Verifying user eligibility and age restrictions across deployment platforms.</li>
+                            </ul>
+                            <h3>3. Data Sharing and Third-Party Platforms</h3>
+                            <p>We do not sell, rent, or trade your personal data with third-party advertisers. Your data is only shared under the following conditions:</p>
+                            <ul>
+                                <li><strong>Platform Providers:</strong> When you sign up or log in using third-party authenticators (Google, Apple, or Facebook), those platforms process your authentication data according to their respective privacy rules.</li>
+                                <li><strong>Legal & Safety Requirements:</strong> We may disclose your information if required by law or to protect the safety, rights, or integrity of our game environment.</li>
+                            </ul>
+                            <h3>4. Platform-Specific Compliance Declarations (2026)</h3>
+                            <p><strong>Google Play Data Safety</strong><br>This App complies with the Google Play Data Safety Policy. We declare that we collect Name, Email, Age, Device IDs, and Game Performance data. All data transferred is encrypted in transit using modern cryptographic standards (HTTPS/TLS).</p>
+                            <p><strong>Apple App Store Privacy Manifests</strong><br>In accordance with Apple's App Tracking Transparency and Privacy Manifest frameworks, we track Device IDs strictly for fraud prevention, security, and app functionality purposes. We do not use your data to track your activity across third-party apps or websites for targeted advertising.</p>
+                            <p><strong>Facebook Games App Policy</strong><br>When accessing the App via Facebook Games, we access your basic public profile data under Facebook's explicit user-consent scopes. You can revoke this access at any time through your Facebook Account Settings.</p>
+                            <h3>5. Data Retention, Deletion, and User Rights</h3>
+                            <p><strong>Account Management</strong><br>Users may log on to www.456dice.com at any time to manage personal app data, change passwords, and review rewards or achievements.</p>
+                            <p><strong>Right to Delete Data</strong><br>In compliance with global data privacy regulations (including CCPA/CPRA and GDPR), you have the right to request the total deletion of your personal data. You can execute your data deletion request via the designated link on our website at www.456dice.com. Important Operational Note: Because our data policy is strictly designed to ensure a fair game experience, prevent cheating, and protect our rewards eco-system, users who opt to delete their data will no longer be able to use the App. Agreeing to our continuous data policy is a technical requirement for operating an active account.</p>
+                            <h3>6. Security of Your Data</h3>
+                            <p>We employ industry-standard technical and organizational security measures to protect your personal data from unauthorized access, alteration, or disclosure. However, no internet transmission or electronic storage method can be guaranteed 100% secure.</p>
+                            <h3>7. Changes to This Privacy Policy</h3>
+                            <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date at the top. You are advised to review this Privacy Policy periodically for any changes.</p>
+                            <h3>8. Contact Us</h3>
+                            <p>If you have any questions or concerns regarding this Privacy Policy, your data rights, or the data practices of moNPO Mobile Game Solutions, please contact us at:<br>Website: <a href="https://456dice.com" target="_blank" rel="noopener">456dice.com</a><br>Developer Team: moNPO Mobile Game Solutions</p>
+                        `,
                     terms: `
                         <h2>Terms of Service</h2>
-                        <p>This overlay provides the terms of service summary for 456Dice.</p>
-                        <p>More content will be added to this page later.</p>
-                        <p><strong>Terms of Service URL:</strong> <a href="http://www.456dice.com/terms" target="_blank" rel="noopener">http://www.456dice.com/terms</a></p>
+                        <p><strong>Effective Date:</strong> June 1, 2026<br><strong>Last Updated:</strong> June 4, 2026</p>
+                        <p>Welcome to 4-5-6 Jackpot (the "App"). These Terms of Service ("Terms") constitute a legally binding agreement between you ("User" or "you") and moNPO Mobile Game Solutions ("we," "us," or "our") concerning your access to and use of the 4-5-6 Jackpot mobile application, the Facebook Games application, and the official website located at 456dice.com (collectively, the "Service"). By downloading, installing, or accessing the Service, you agree to be bound by these Terms. If you do not agree to all of these Terms, you are expressly prohibited from using the App and must discontinue use immediately.</p>
+                        <h3>1. Eligibility and Account Registration</h3>
+                        <h4>A. Age Requirements</h4>
+                        <p>By registering an account, you represent and warrant that you meet the age verification requirements mandated by the Google Play Store, Apple App Store, and Facebook Games platform guidelines. You agree to provide a valid date of birth during registration to verify your age.</p>
+                        <h4>B. Registration Methods</h4>
+                        <p>Users may register an account directly through the mobile app stores (using Apple or Google OpenID authentication), via Facebook Games login, or by using a personal email address.</p>
+                        <h4>C. Account Security</h4>
+                        <p>You are entirely responsible for maintaining the confidentiality of your account password and data. You may log on to www.456dice.com at any time to change your password, view your in-app achievements, and review your rewards. You agree to notify us immediately of any unauthorized use of your account.</p>
+                        <h3>2. Play-Money Rewards and Virtual Currency</h3>
+                        <p><strong>No Real Money Wagering:</strong> 4-5-6 Jackpot is a play-money rewards-based mobile game. The Service does not offer real-money gambling.</p>
+                        <p><strong>Virtual Ecosystem:</strong> All in-game points, virtual currency, or dice rolls have no real-world monetary value and do not constitute private property.</p>
+                        <p><strong>Rewards Management:</strong> Any reward points or achievements accumulated within the App are subject to verification by moNPO Mobile Game Solutions. Rewards may not be transferred, traded, or sold outside the authorized mechanisms provided on 456dice.com.</p>
+                        <h3>3. Mandatory Data Policy and Fair Play</h3>
+                        <p>To ensure a competitive, reliable, and fair gaming experience for all users, we enforce a strict anti-cheating data framework.</p>
+                        <p><strong>Required Data Collection:</strong> To circumvent cheating, multi-account exploitation, botting, or any unauthorized use of the 4-5-6 Jackpot App, we actively track native gaming stats (including daily app utilization) and mobile device IDs.</p>
+                        <p><strong>Condition of Use:</strong> Agreement to this data tracking is a strict requirement for utilizing the Service. If you do not consent to our data collection mechanisms, you are not authorized to play the game.</p>
+                        <h3>4. Account Deletion and Termination</h3>
+                        <h4>A. Right to Delete</h4>
+                        <p>In accordance with global data privacy regulations, you have the right to request the complete deletion of your personal data via the designated link on our website at 456dice.com.</p>
+                        <h4>B. Operational Consequences of Deletion</h4>
+                        <p>Because our anti-cheat infrastructure relies on persistent data (such as Device IDs) to verify legitimate gameplay, users who opt to delete their personal data will immediately lose access to the App. Upon data deletion, your account will be permanently closed, and any unredeemed play-money rewards, stats, or achievements will be forfeited and cannot be recovered.</p>
+                        <h3>5. Intellectual Property Rights</h3>
+                        <p>Unless otherwise indicated, the Service, including the frontend website 456dice.com, all source code, databases, functionality, software, game designs, audio, video, text, and graphics in the App are owned or controlled by us, and are protected by copyright, trademark, and intellectual property laws. All Rights Reserved. You are granted a limited, non-exclusive, non-transferable, and revocable license to access the game strictly for your personal, non-commercial entertainment.</p>
+                        <h3>6. Prohibited Activities</h3>
+                        <p>You agree not to use the Service to:</p>
+                        <ul>
+                            <li>Decompile, reverse engineer, or modify any portion of the App.</li>
+                            <li>Use automated scripts, bots, hacks, or unauthorized third-party software to manipulate game data or rewards.</li>
+                            <li>Circumvent, disable, or interfere with security-related features of the App, including device verification checks.</li>
+                            <li>Create multiple accounts using fraudulent or spoofed device identifiers.</li>
+                        </ul>
+                        <h3>7. Limitation of Liability</h3>
+                        <p>The Service is provided on an "as-is" and "as-available" basis. To the fullest extent permitted by law, moNPO Mobile Game Solutions disclaims all warranties, express or implied, in connection with the Service. We shall not be liable for any direct, indirect, incidental, or consequential damages resulting from your use of, or inability to use, the App or website.</p>
+                        <h3>8. Governing Law</h3>
+                        <p>These Terms and your use of the Service are governed by and construed in accordance with the laws of the jurisdiction in which moNPO Mobile Game Solutions operates, without regard to its conflict of law principles.</p>
+                        <h3>9. Contact Information</h3>
+                        <p>If you have any questions regarding these Terms, or if you need to report an issue regarding your account, please contact us via our website:<br>Website: <a href="https://456dice.com" target="_blank" rel="noopener">456dice.com</a><br>Developer Team: moNPO Mobile Game Solutions</p>
                     `
                 };
 
@@ -610,6 +721,20 @@
                     btn.classList.toggle('active', btn.id === `overlayTab${pageKey.charAt(0).toUpperCase() + pageKey.slice(1)}`);
                 });
                 history.replaceState({ page: pageKey }, '', `/${pageKey}`);
+            }
+
+            function openContentOverlay(page) {
+                const overlay = document.getElementById('contentOverlay');
+                if (!overlay) return;
+                overlay.style.display = 'flex';
+                if (page) showOverlayContent(page);
+            }
+
+            function closeContentOverlay() {
+                const overlay = document.getElementById('contentOverlay');
+                if (!overlay) return;
+                overlay.style.display = 'none';
+                history.replaceState({}, '', '/');
             }
         </script>
 
