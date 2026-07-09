@@ -1,2 +1,9 @@
 # Add environment variables to .gitignore
 .env
+
+# Local backend build artifacts
+backend/bin/
+backend/obj/
+backend/backend.db
+backend/backend.db-shm
+backend/backend.db-wal
